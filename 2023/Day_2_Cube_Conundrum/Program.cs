@@ -67,6 +67,4 @@ foreach (string line in lines)
     powersMinimums.Add(minimumPossibleRed * minimumPossibleGreen * minimumPossibleBlue);
 }
 
-int sumOfMinimumPowersOfValidGames = powersMinimums.Sum();
-
-Console.WriteLine($"Sum of minimum power of valid games a is {sumOfMinimumPowersOfValidGames}");
+Console.WriteLine($"Sum of minimum power of all games a are {powersMinimums.Sum()}");
