@@ -27,16 +27,7 @@ foreach (string line in lines)
     {
         firstValue += wordsToNumbers[i];
 
-        if (char.IsDigit(wordsToNumbers[i]) ||
-            firstValue.Contains(numbers.ElementAt(0).Key) ||
-            firstValue.Contains(numbers.ElementAt(1).Key) ||
-            firstValue.Contains(numbers.ElementAt(2).Key) ||
-            firstValue.Contains(numbers.ElementAt(3).Key) ||
-            firstValue.Contains(numbers.ElementAt(4).Key) ||
-            firstValue.Contains(numbers.ElementAt(5).Key) ||
-            firstValue.Contains(numbers.ElementAt(6).Key) ||
-            firstValue.Contains(numbers.ElementAt(7).Key) ||
-            firstValue.Contains(numbers.ElementAt(8).Key))
+        if (char.IsDigit(wordsToNumbers[i]) || numbers.Any(number => firstValue.Contains(number.Key)))
         {
             firstNumber = firstValue;
             break;
@@ -48,16 +39,7 @@ foreach (string line in lines)
     for (int i = wordsToNumbers.Length - 1; i >= 0; i--)
     {
         firstValue += wordsToNumbers[i];
-        if (char.IsDigit(wordsToNumbers[i]) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(0).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(1).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(2).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(3).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(4).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(5).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(6).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(7).Key)) ||
-            firstValue.Contains(Reverse(numbers.ElementAt(8).Key)))
+        if (char.IsDigit(wordsToNumbers[i]) || numbers.Any(number => firstValue.Contains(Reverse(number.Key))))
         {
             firstNumberFromBack = Reverse(firstValue);
             break;
