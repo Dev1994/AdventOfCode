@@ -30,6 +30,8 @@ public class ScratchCard
 
     public List<int> MatchingNumbers { get; set; } = new ();
 
+    public int Copies { get; set; }
+
     private void SetMatchingNumbers()
     {
         MatchingNumbers = WinningNumbers.Intersect(ScratchNumbers).ToList();

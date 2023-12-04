@@ -5,3 +5,4 @@ string[] lines = File.ReadAllLines("./input.txt");
 ScratchcardChecker scratchcardChecker = new ();
 
 Console.WriteLine($"Sum of all points = {scratchcardChecker.GetSumOfPoints(lines)}");
+Console.WriteLine($"Sum of scratchcards = {scratchcardChecker.GetTotalScratchcards(lines)}");
