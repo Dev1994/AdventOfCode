@@ -4,17 +4,17 @@ public class EngineParts
 {
     public int CalculateGearsSum(string[] lines)
     {
-        List<int> engineParts = new();
-        List<Dictionary<string, (List<int> numberIndexes, bool isEnginePart)>> lineDictionariesList = new();
-        List<int> secondLastSpecialIndexes = new();
-        List<int> previousSpecialIndexes = new();
+        List<int> engineParts = new ();
+        List<Dictionary<string, (List<int> numberIndexes, bool isEnginePart)>> lineDictionariesList = new ();
+        List<int> secondLastSpecialIndexes = new ();
+        List<int> previousSpecialIndexes = new ();
 
         foreach (string line in lines)
         {
             char[] lineChars = line.ToCharArray();
 
-            List<int> numberIndexes = new();
-            List<int> specialIndexes = new();
+            List<int> numberIndexes = new ();
+            List<int> specialIndexes = new ();
 
             // Get all the number indexes and special character indexes.
             for (int i = 0; i < lineChars.Length; i++)
@@ -26,9 +26,9 @@ public class EngineParts
                     specialIndexes.Add(i);
             }
 
-            Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> fullNumbersDictionary = new();
+            Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> fullNumbersDictionary = new ();
             string fullNumber = string.Empty;
-            List<int> fullNumberIndexes = new();
+            List<int> fullNumberIndexes = new ();
             int previousIndex = -1;
 
             foreach (int numberIndex in numberIndexes)
@@ -108,21 +108,19 @@ public class EngineParts
     private static Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> GetUpdatedDictionary(
         List<int> specialIndexes, Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> previousLine)
     {
-        Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> updatedFullNumberDictionary = new();
+        Dictionary<string, (List<int> numberIndexes, bool isEnginePart)> updatedFullNumberDictionary = new ();
         foreach (KeyValuePair<string, (List<int> numberIndexes, bool isEnginePart)> previousLineDictionary in previousLine)
         {
             List<int> currentIndexes = previousLineDictionary.Value.numberIndexes;
             if (previousLineDictionary.Value.isEnginePart)
             {
-                updatedFullNumberDictionary.Add(
-                    previousLineDictionary.Key, (currentIndexes, true));
+                updatedFullNumberDictionary.Add(previousLineDictionary.Key, (currentIndexes, true));
             }
             else
             {
                 updatedFullNumberDictionary.Add(
                     previousLineDictionary.Key, (currentIndexes, HasSpecialCharacterInSameIndex(specialIndexes, currentIndexes) || HasSpecialPrefixOrPostfix(specialIndexes, currentIndexes)));
             }
-
         }
 
         return updatedFullNumberDictionary;

@@ -6,6 +6,8 @@ namespace UnitTests._2023.Day_3_Gear_Ratios;
 [TestClass]
 public class GearRatiosTests
 {
+    #region PartOne
+
     [TestMethod]
     public void SingleLineNoEngineParts()
     {
@@ -186,6 +188,10 @@ public class GearRatiosTests
         sum.ShouldBe(416);
     }
 
+    #endregion
+
+    #region PartTwo 
+
     [TestMethod]
     public void FindsSingleGearSameLine()
     {
@@ -220,4 +226,6 @@ public class GearRatiosTests
         // Assert
         gearRatio.ShouldBe(100);
     }
+
+    #endregion
 }
