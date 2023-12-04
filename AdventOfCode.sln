@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day_3_Gear_Ratios", "2023\Day_3_Gear_Ratios\Day_3_Gear_Ratios.csproj", "{1A18F549-1F7D-491F-9A50-EE6FBB3811FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day_4_Scratchcards", "Day_4_Scratchcards\Day_4_Scratchcards.csproj", "{2A2110C4-8242-469A-AD4D-E8EF7C255077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{1A18F549-1F7D-491F-9A50-EE6FBB3811FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A18F549-1F7D-491F-9A50-EE6FBB3811FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A18F549-1F7D-491F-9A50-EE6FBB3811FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2110C4-8242-469A-AD4D-E8EF7C255077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2110C4-8242-469A-AD4D-E8EF7C255077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2110C4-8242-469A-AD4D-E8EF7C255077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2110C4-8242-469A-AD4D-E8EF7C255077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{BDC8B443-3A9C-496A-B4A0-9B47CBBE580A} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 		{9C895700-0258-4EC4-9092-374CB170A7EF} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 		{1A18F549-1F7D-491F-9A50-EE6FBB3811FE} = {198F8484-E105-45E1-A3A1-351E96470AD6}
+		{2A2110C4-8242-469A-AD4D-E8EF7C255077} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1965339-4C59-4E9E-8D52-5A5AFBB90623}

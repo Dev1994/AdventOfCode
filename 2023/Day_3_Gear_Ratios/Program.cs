@@ -1,4 +1,5 @@
-﻿using Day_3_Gear_Ratios;string[] lines = File.ReadAllLines("./input.txt");
+﻿using Day_3_Gear_Ratios;
+string[] lines = File.ReadAllLines("./input.txt");
 
 EngineParts engineParts = new ();
 
