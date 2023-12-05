@@ -1,22 +1,19 @@
 ﻿namespace Day_5_If_You_Give_A_Seed_A_Fertilizer;
 
-public class Map
+public class Map(string[] splitMap)
 {
-    public Map(string[] splitMap)
-    {
-        Destination = long.Parse(splitMap[0]);
-        Source = long.Parse(splitMap[1]);
-        Range = long.Parse(splitMap[2]);
-    }
+    public long Destination { get; set; } = long.Parse((string) splitMap[0]);
 
-    public long Destination { get; set; }
+    public long Source { get; set; } = long.Parse(splitMap[1]);
 
-    public long Source { get; set; }
-
-    public long Range { get; set; }
+    public long Range { get; set; } = long.Parse((string) splitMap[2]);
 
     public bool ContainedInRange(long seed)
     {
-        return Enumerable.Range(Source, Range).Contains(seed);
+        long max = Source + Range;
+        if (seed < max && seed > Source)
+            return true;
+
+        return false;
     }
 }
