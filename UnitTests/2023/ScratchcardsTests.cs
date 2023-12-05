@@ -1,7 +1,7 @@
 using Day_4_Scratchcards;
 using Shouldly;
 
-namespace UnitTests._2023.Day_4_Scratchcards;
+namespace UnitTests._2023;
 
 [TestClass]
 public class ScratchcardsTests

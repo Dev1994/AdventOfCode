@@ -1,7 +1,7 @@
 using Day_3_Gear_Ratios;
 using Shouldly;
 
-namespace UnitTests._2023.Day_3_Gear_Ratios;
+namespace UnitTests._2023;
 
 [TestClass]
 public class GearRatiosTests
