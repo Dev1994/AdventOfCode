@@ -2,13 +2,15 @@
 
 public class Almanac
 {
-    public Almanac(string[] lines)
+    public Almanac(string[] lines, bool useRangedSeeds = false)
     {
-        SetSeeds(lines.First());
+        SetSeeds(lines.First(), useRangedSeeds);
         SetMappings(lines);
     }
 
     public List<long> Seeds { get; } = new ();
+
+    public Dictionary<long, long> SeedsWithRanges { get; } = new ();
 
     public Mapping SeedToSoil { get; private set; }
 
@@ -24,10 +26,19 @@ public class Almanac
 
     public Mapping HumidityToLocation { get; private set; }
 
-    public long GetClosestLocation()
+    public long GetClosestLocation(bool useRanges = false)
     {
-        Console.WriteLine("Starting to get SeedToSoil");
-        List<long> soilResult = SeedToSoil.GetDestinationResult(Seeds);
+        List<long> soilResult;
+        if (useRanges)
+        {
+            Console.WriteLine("Starting to get SeedToSoil with ranges");
+            soilResult = SeedToSoil.GetDestinationResult(SeedsWithRanges);
+        }
+        else
+        {
+            Console.WriteLine("Starting to get SeedToSoil");
+            soilResult = SeedToSoil.GetDestinationResult(Seeds);
+        }
 
         Console.WriteLine("Starting to get SoilToFertilizer");
         List<long> fertilizerResult = SoilToFertilizer.GetDestinationResult(soilResult);
@@ -50,7 +61,7 @@ public class Almanac
         return locationResult.Min();
     }
 
-    private void SetSeeds(string line)
+    private void SetSeeds(string line, bool useRangedSeeds)
     {
         string cleanedLine = line.Replace("seeds: ", "").Trim();
         char[] chars = cleanedLine.ToCharArray();
@@ -69,6 +80,15 @@ public class Almanac
         }
 
         Seeds.Add(long.Parse(fullNumber));
+
+        if (!useRangedSeeds)
+            return;
+
+        for (int i = 0; i < Seeds.Count - 1; i++)
+        {
+            if (i % 2 == 0)
+                SeedsWithRanges.Add(Seeds[i], Seeds[i + 1]);
+        }
     }
 
     private void SetMappings(string[] lines)

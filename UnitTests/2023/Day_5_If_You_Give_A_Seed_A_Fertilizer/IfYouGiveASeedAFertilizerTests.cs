@@ -31,7 +31,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "seed-to-soil map:", "50 98 2", "52 50 48" };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.SeedToSoil.InputMaps[0].Source.ShouldBe(98);
@@ -50,7 +50,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "soil-to-fertilizer map:", "0 15 37", "37 52 2", "39 0 15", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.SoilToFertilizer.InputMaps[0].Source.ShouldBe(15);
@@ -70,10 +70,10 @@ public class IfYouGiveASeedAFertilizerTests
     public void SetsFertilizerToWaterInputMaps()
     {
         // Arrange
-        string[] lines = { "seeds: 79 14 55 13", " ", "fertilizer-to-water map:", "49 53 8", "0 11 42", "42 0 7", "57 7 4",  " " };
+        string[] lines = { "seeds: 79 14 55 13", " ", "fertilizer-to-water map:", "49 53 8", "0 11 42", "42 0 7", "57 7 4", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.FertilizerToWater.InputMaps[0].Source.ShouldBe(53);
@@ -100,7 +100,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "water-to-light map:", "88 18 7", "18 25 70", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.WaterToLight.InputMaps[0].Source.ShouldBe(18);
@@ -119,7 +119,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "light-to-temperature map:", "45 77 23", "81 45 19", "68 64 13", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.LightToTemperature.InputMaps[0].Source.ShouldBe(77);
@@ -142,7 +142,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "temperature-to-humidity map:", "0 69 1", "1 0 69", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.TemperatureToHumidity.InputMaps[0].Source.ShouldBe(69);
@@ -161,7 +161,7 @@ public class IfYouGiveASeedAFertilizerTests
         string[] lines = { "seeds: 79 14 55 13", " ", "temperature-to-humidity map:", "0 69 1", "1 0 69", " ", "humidity-to-location map:", "60 56 37", "56 93 4", " " };
 
         // Act
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Assert
         almanac.TemperatureToHumidity.InputMaps[0].Source.ShouldBe(69);
@@ -180,17 +180,70 @@ public class IfYouGiveASeedAFertilizerTests
     }
 
     [TestMethod]
+    public void GetsSeedToSoilIDestinationResult()
+    {
+        // Arrange
+        string[] lines = { "seeds: 79 14 55 13", " ", "seed-to-soil map:", "50 98 2", "52 50 48" };
+        Almanac almanac = new (lines);
+
+        // Act
+        List<long> destinationResult = almanac.SeedToSoil.GetDestinationResult(almanac.Seeds);
+
+        // Assert
+        destinationResult[0].ShouldBe(81);
+        destinationResult[1].ShouldBe(14);
+        destinationResult[2].ShouldBe(57);
+        destinationResult[3].ShouldBe(13);
+    }
+
+    [TestMethod]
     public void GetClosestLocation()
     {
         // Arrange
         string[] lines = File.ReadAllLines("./testing_input.txt");
-        Almanac almanac = new(lines);
+        Almanac almanac = new (lines);
 
         // Act
         long closestLocation = almanac.GetClosestLocation();
 
         // Assert
         closestLocation.ShouldBe(35);
+    }
+
+    #endregion
+
+    #region PartTwo
+
+    [TestMethod]
+    public void SetsRangedSeedsList()
+    {
+        // Arrange
+        string[] lines = { "seeds: 79 14 55 13", "seed-to-soil map:", "50 98 2" };
+
+        // Act
+        Almanac almanac = new(lines, true);
+
+        // Assert
+        // First set
+        almanac.SeedsWithRanges.Keys.Count.ShouldBe(2);
+        almanac.SeedsWithRanges.ToList()[0].Key.ShouldBe(79);
+        almanac.SeedsWithRanges.ToList()[0].Value.ShouldBe(14);
+        almanac.SeedsWithRanges.ToList()[1].Key.ShouldBe(55);
+        almanac.SeedsWithRanges.ToList()[1].Value.ShouldBe(13);
+    }
+
+    [TestMethod]
+    public void GetClosestLocationWithRanges()
+    {
+        // Arrange
+        string[] lines = File.ReadAllLines("./testing_input.txt");
+        Almanac almanac = new(lines, true);
+
+        // Act
+        long closestLocation = almanac.GetClosestLocation(true);
+
+        // Assert
+        closestLocation.ShouldBe(46);
     }
 
     #endregion

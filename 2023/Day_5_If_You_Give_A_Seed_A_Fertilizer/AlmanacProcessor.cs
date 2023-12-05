@@ -2,9 +2,9 @@
 
 public class AlmanacProcessor
 {
-    public long GetClosestLocation(string[] lines)
+    public long GetClosestLocation(string[] lines, bool useRanges = false)
     {
-        Almanac almanac = new (lines);
-        return almanac.GetClosestLocation();
+        Almanac almanac = new (lines , useRanges);
+        return almanac.GetClosestLocation(useRanges);
     }
 }
