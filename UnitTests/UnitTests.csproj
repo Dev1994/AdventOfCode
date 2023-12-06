@@ -21,6 +21,7 @@
     <ProjectReference Include="..\2023\Day_3_Gear_Ratios\Day_3_Gear_Ratios.csproj" />
     <ProjectReference Include="..\2023\Day_4_Scratchcards\Day_4_Scratchcards.csproj" />
     <ProjectReference Include="..\2023\Day_5_If_You_Give_A_Seed_A_Fertilizer\Day_5_If_You_Give_A_Seed_A_Fertilizer.csproj" />
+    <ProjectReference Include="..\2023\Day_6_Wait_For_It\Day_6_Wait_For_It.csproj" />
   </ItemGroup>
 
 </Project>

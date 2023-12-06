@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day_4_Scratchcards", "2023\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day_5_If_You_Give_A_Seed_A_Fertilizer", "2023\Day_5_If_You_Give_A_Seed_A_Fertilizer\Day_5_If_You_Give_A_Seed_A_Fertilizer.csproj", "{B5387061-D4CD-4B97-A466-702DEA7243CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day_6_Wait_For_It", "2023\Day_6_Wait_For_It\Day_6_Wait_For_It.csproj", "{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{B5387061-D4CD-4B97-A466-702DEA7243CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5387061-D4CD-4B97-A466-702DEA7243CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5387061-D4CD-4B97-A466-702DEA7243CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{1A18F549-1F7D-491F-9A50-EE6FBB3811FE} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 		{F241E91A-42D5-47FC-89BB-206355BD159B} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 		{B5387061-D4CD-4B97-A466-702DEA7243CA} = {198F8484-E105-45E1-A3A1-351E96470AD6}
+		{695CD00C-FE85-4AAA-B467-9D7F3B5A1C0F} = {198F8484-E105-45E1-A3A1-351E96470AD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1965339-4C59-4E9E-8D52-5A5AFBB90623}
