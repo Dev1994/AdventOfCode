@@ -48,13 +48,27 @@ public class WaitForIt
     {
         // Arrange
         string[] lines = File.ReadAllLines("./test_input.txt");
-        BoatRaceProcessor boatRaceProcessor = new (lines.ToList());
+        BoatRaceProcessor boatRaceProcessor = new(lines.ToList());
 
         // Act
         long waysToWinMultiplied = boatRaceProcessor.GetWaysToWinMultiplied();
 
         // Assert
         waysToWinMultiplied.ShouldBe(288);
+    }
+
+    [TestMethod]
+    public void PartOneComplete()
+    {
+        // Arrange
+        string[] lines = File.ReadAllLines("./input.txt");
+        BoatRaceProcessor boatRaceProcessor = new (lines.ToList());
+
+        // Act
+        long waysToWinMultiplied = boatRaceProcessor.GetWaysToWinMultiplied();
+
+        // Assert
+        waysToWinMultiplied.ShouldBe(800280);
     }
 
     #endregion
@@ -81,13 +95,27 @@ public class WaitForIt
     {
         // Arrange
         string[] lines = File.ReadAllLines("./test_input.txt");
-        BoatRaceProcessor boatRaceProcessor = new (lines.ToList());
+        BoatRaceProcessor boatRaceProcessor = new(lines.ToList());
 
         // Act
         long numberOfPossibleWaysToWin = boatRaceProcessor.Race.GetNumberOfPossibleWaysToWin();
 
         // Assert
         numberOfPossibleWaysToWin.ShouldBe(71503);
+    }
+
+    [TestMethod]
+    public void PartTwoComplete()
+    {
+        // Arrange
+        string[] lines = File.ReadAllLines("./input.txt");
+        BoatRaceProcessor boatRaceProcessor = new (lines.ToList());
+
+        // Act
+        long numberOfPossibleWaysToWin = boatRaceProcessor.Race.GetNumberOfPossibleWaysToWin();
+
+        // Assert
+        numberOfPossibleWaysToWin.ShouldBe(45128024);
     }
 
     #endregion
