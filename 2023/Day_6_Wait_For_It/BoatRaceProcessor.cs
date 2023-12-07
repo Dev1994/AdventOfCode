@@ -1,24 +1,17 @@
 ﻿namespace Day_6_Wait_For_It;
 
-public class BoatRaceProcessor
+public class BoatRaceProcessor(List<string> lines)
 {
-    public BoatRaceProcessor(List<string> lines)
-    {
-        SetRaces(lines);
-        SetSingleRace(lines);
-    }
+    public List<Race> Races { get; } = SetRaces(lines);
 
-    public List<Race> Races { get; set; } = new ();
-
-    public Race Race { get; set; }
+    public Race Race { get; set; } = GetSingleRace(lines);
 
     private long WinningNumbersMultiplied { get; set; }
 
     public long GetWaysToWinMultiplied()
     {
-        foreach (Race race in Races)
+        foreach (long possibleWaysToWin in Races.Select(race => race.GetNumberOfPossibleWaysToWin()))
         {
-            long possibleWaysToWin = race.GetNumberOfPossibleWaysToWin();
             if (WinningNumbersMultiplied == 0)
                 WinningNumbersMultiplied = possibleWaysToWin;
             else
@@ -28,16 +21,15 @@ public class BoatRaceProcessor
         return WinningNumbersMultiplied;
     }
 
-    private void SetRaces(List<string> lines)
+    private static List<Race> SetRaces(List<string> lines)
     {
         List<string> times = lines.First().Replace("Time:", string.Empty).Trim().Split(" ").Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
         List<string> distances = lines[^1].Replace("Distance:", string.Empty).Trim().Split(" ").Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
 
-        for (int i = 0; i < times.Count; i++)
-            Races.Add(new Race(int.Parse(times[i]), int.Parse(distances[i])));
+        return times.Select((t, i) => new Race(int.Parse(t), int.Parse(distances[i]))).ToList();
     }
 
-    private void SetSingleRace(List<string> lines)
+    private static Race GetSingleRace(List<string> lines)
     {
         string time = string.Empty;
         string distance = string.Empty;
@@ -48,6 +40,6 @@ public class BoatRaceProcessor
         if (time == null || distance == null)
             throw new Exception("Could not set time and distance for single race");
 
-        Race = new Race(long.Parse(time), long.Parse(distance));
+        return new Race(long.Parse(time), long.Parse(distance));
     }
 }

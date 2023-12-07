@@ -1,20 +1,14 @@
 ﻿namespace Day_6_Wait_For_It;
 
-public class Race
+public class Race(long time, long raceRecord)
 {
-    public Race(long time, long raceRecord)
-    {
-        Time = time;
-        CurrentRecord = raceRecord;
-    }
+    public long Time { get; set; } = time;
 
-    public long Time { get; set; }
-
-    public long CurrentRecord { get; set; }
+    public long CurrentRecord { get; set; } = raceRecord;
 
     public long GetNumberOfPossibleWaysToWin()
     {
-        List<long> results = new ();
+        List<long> results = [];
         for (long i = 0; i <= Time; i++)
         {
             long result = (Time - i) * i;
