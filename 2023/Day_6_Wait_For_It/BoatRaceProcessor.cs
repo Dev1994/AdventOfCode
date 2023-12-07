@@ -4,7 +4,7 @@ public class BoatRaceProcessor(List<string> lines)
 {
     public List<Race> Races { get; } = SetRaces(lines);
 
-    public Race Race { get; set; } = GetSingleRace(lines);
+    public Race Race { get; } = GetSingleRace(lines);
 
     private long WinningNumbersMultiplied { get; set; }
 
